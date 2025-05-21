@@ -1,105 +1,139 @@
-# -----------------------------------------------------------------------------
-# Enterprise Network Simulation (Cisco Packet Tracer)
-# -----------------------------------------------------------------------------
-# This script-style README documents a small-scale enterprise network simulation
-# created in Cisco Packet Tracer. The network uses dynamic routing protocols,
-# NAT, DHCP, ACLs, and more to demonstrate enterprise-grade functionality.
-# -----------------------------------------------------------------------------
+# 🌐 Enterprise Network Simulation | Cisco Packet Tracer
 
-# -------------------------------
-# 🗂️ Project Overview
-# -------------------------------
-# - Multi-router network topology
-# - End devices: PCs, laptops, tablets, smartphones
-# - Services: DHCP, Web, Email
-# - Protocols: EIGRP, OSPF, RIP
-# - NAT & ACLs configured
-# - Layer 1 & Layer 2 tested
+![Project Type](https://img.shields.io/badge/type-Network%20Simulation-blue)
+![Status](https://img.shields.io/badge/status-Completed-brightgreen)
+![Tool](https://img.shields.io/badge/tool-Cisco%20Packet%20Tracer-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-# -------------------------------
-# 📐 Devices Used
-# -------------------------------
-# - 19 Cisco 2811 Routers
-# - 7 Switches
-# - 8 Generic PCs
-# - 6 Laptops
-# - 4 Smartphones
-# - 2 Tablets
-# - 3 Servers (DHCP, Email, Web)
-# - 3 Access Points
-# - 24 Copper Straight-Through Wires
-# - 23 Serial Connections
-# - 2 Copper Wires
+A fully functional **small-scale enterprise network simulation** built in **Cisco Packet Tracer**. This project integrates routing protocols, DHCP, NAT, and ACLs, showcasing enterprise-level network design.
 
-# -------------------------------
-# 🔧 IP Addressing
-# -------------------------------
-# Public IP          : 65.142.177.13
-# Internal LAN       : 192.168.1.0/24
-# DHCP Server        : 65.142.127.254
-# Email Server       : 65.142.191.254
-# Web Server         : Assigned via DHCP
+---
 
-# -------------------------------
-# 📡 Routing Protocols
-# -------------------------------
-# - RIP     : Legacy zone inter-LAN routing
-# - OSPF    : Internal dynamic routing (Areas 1 & 2)
-# - EIGRP   : Edge routing with fast convergence
-# - Static  : For specific host/network reachability
-# - Redistribution: Between all routing protocols
+## 📘 Table of Contents
 
-# -------------------------------
-# ⚙️ DHCP Configuration
-# -------------------------------
-# - DHCP server on Router R1
-# - Pool includes subnet, gateway, DNS
-# - Clients successfully received dynamic IPs
+- [Overview](#overview)
+- [Network Features](#network-features)
+- [Devices & Topology](#devices--topology)
+- [IP Addressing Scheme](#ip-addressing-scheme)
+- [Routing Configuration](#routing-configuration)
+- [Services](#services)
+- [Validation](#validation)
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
 
-# -------------------------------
-# 🔐 NAT & ACL Setup
-# -------------------------------
-# - PAT configured on Routers R8 & R20
-# - Inside/outside interfaces marked
-# - Verified using: show ip nat translations
-# - ACL blocks: 65.143.127.255
+---
 
-# -------------------------------
-# ✉️ Email Service
-# -------------------------------
-# - SMTP Server: 65.142.191.254
-# - Domain: gmail.com
-# - PCs configured with clients & users
-# - Host-to-host mail verified
+## 🔍 Overview
 
-# -------------------------------
-# 📁 Files
-# -------------------------------
-# - Project.pkt (Cisco Packet Tracer file)
-# - Project Overview.docx (Full documentation)
+This simulation demonstrates:
+- Multi-area **OSPF**, **RIP**, and **EIGRP** configurations
+- Advanced **NAT** and **ACL** implementation
+- **DHCP**, **SMTP (Email)**, and **Web Server** configurations
+- Custom IP address planning using **VLSM**
 
-# -------------------------------
-# 🧪 Validation
-# -------------------------------
-# - All routers reachable via ping
-# - Traceroutes tested end-to-end
-# - DHCP leases confirmed
-# - NAT/ACLs verified
-# - Email services operational
+---
 
-# -------------------------------
-# 🖥️ Requirements
-# -------------------------------
-# - Cisco Packet Tracer v7.3+ recommended
+## 🚀 Network Features
 
-# -------------------------------
-# 🚀 Usage Instructions
-# -------------------------------
-# $ git clone <repo-url>
-# $ open Project.pkt in Cisco Packet Tracer
-# $ run simulation and explore
+- ✅ Dynamic & Static Routing
+- ✅ PAT (Port Address Translation)
+- ✅ Access Control Lists (ACLs)
+- ✅ SMTP Email communication
+- ✅ DHCP for automatic IP assignment
+- ✅ Traceroute and end-to-end ping support
 
-# -------------------------------
-# 📬 Contact
-# -------------------------------
-# Open an issue or submit a PR for questions/contributions.
+---
+
+## 🧰 Devices & Topology
+
+| Device Type         | Quantity |
+|---------------------|----------|
+| Routers (2811)      | 19       |
+| Switches            | 7        |
+| PCs                 | 8        |
+| Laptops             | 6        |
+| Smartphones         | 4        |
+| Tablets             | 2        |
+| Access Points       | 3        |
+| Servers (DHCP, Email, Web) | 3  |
+| Wires (Serial, Copper)     | ~50 |
+
+🖼️ *A detailed topology diagram is included in the `.pkt` file.*
+
+---
+
+## 🧮 IP Addressing Scheme
+
+### Core Networks:
+- **Public IP**: `65.142.177.13`
+- **Internal LAN**: `192.168.1.0/24`
+
+### Key Servers:
+- **DHCP Server**: `65.142.127.254`
+- **Email Server**: `65.142.191.254`
+- **Web Server**: Assigned via DHCP
+
+### VLSM Summary:
+- Networks segmented from `/17` to `/30`
+- Separate subnet blocks for router-to-router links
+- Efficient IP utilization & broadcast minimization
+
+---
+
+## 🔁 Routing Configuration
+
+- 🔹 **RIP** – For legacy LAN communication
+- 🔹 **OSPF (Area 1 & 2)** – Internal segmentation
+- 🔹 **EIGRP** – High-speed edge routing
+- 🔁 **Route Redistribution** – Between all protocols
+- 🛠️ Static routes for critical path redundancy
+
+---
+
+## ⚙️ Services
+
+### 📦 DHCP
+- Enabled on **Router R1**
+- Configured pools with gateway, subnet mask, and DNS
+
+### 📧 Email (SMTP)
+- Server IP: `65.142.191.254`
+- Domain: `gmail.com`
+- Clients configured with proper credentials
+
+### 🌐 NAT
+- PAT implemented on Routers **R8** and **R20**
+- Verified using `show ip nat translations`
+- Internal devices access internet via public IP
+
+### 🔒 ACLs
+- Access to `65.143.127.255` is blocked
+- Other traffic permitted based on security policies
+
+---
+
+## ✅ Validation
+
+- ✅ End-to-end **ping** and **traceroute** successful
+- ✅ DHCP leases distributed and active
+- ✅ NAT and ACL rules validated via CLI
+- ✅ Email communication verified via Packet Tracer
+
+---
+
+## 💻 Requirements
+
+- Cisco Packet Tracer **v7.3 or newer**
+- Git (for cloning the repository)
+
+---
+
+## 📦 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/network-simulation-packet-tracer.git
+
+# Open the project in Cisco Packet Tracer
+# Navigate to the Project.pkt file
