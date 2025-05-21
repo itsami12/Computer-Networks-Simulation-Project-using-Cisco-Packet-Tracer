@@ -1,2 +1,2 @@
 # Computer-Networks-Simulation-Project-using-Cisco-Packet-Tracer
-The project adheres to a predefined design and IP address allocation scheme and includes multiple subnets with varying host requirements. ACL rules ensure restricted access as specified, and all routing and network services are fully operational.
+This project simulates a comprehensive small-scale enterprise network using Cisco Packet Tracer. The network topology integrates 19 routers, 7 switches, multiple end-user devices, and 3 core servers (DHCP, Email, Web). Routing protocols including RIP, OSPF, and EIGRP are configured to support both legacy and dynamic route management across segmented LANs.
